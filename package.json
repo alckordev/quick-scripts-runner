@@ -1,0 +1,125 @@
+{
+  "name": "scripts-runner",
+  "displayName": "Scripts Runner",
+  "description": "Execute package.json scripts with automatic package manager detection",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "keywords": [
+    "npm",
+    "pnpm",
+    "yarn",
+    "bun",
+    "scripts",
+    "package.json"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Scripts Runner",
+      "properties": {
+        "scriptsRunner.defaultPackageManager": {
+          "type": "string",
+          "default": "npm",
+          "enum": [
+            "npm",
+            "pnpm",
+            "yarn",
+            "bun"
+          ],
+          "description": "Default package manager"
+        },
+        "scriptsRunner.autoDetectPackageManager": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically detect package manager"
+        }
+      }
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "scriptsRunnerExplorer",
+          "name": "Scripts Runner"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "scriptsRunner.runScript",
+        "title": "Run Script",
+        "icon": "$(run)"
+      },
+      {
+        "command": "scriptsRunner.refresh",
+        "title": "Refresh Scripts",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "scriptsRunner.openPackageJson",
+        "title": "Open package.json",
+        "icon": "$(file-code)"
+      },
+      {
+        "command": "scriptsRunner.changePackageManager",
+        "title": "Change Package Manager",
+        "icon": "$(package)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "scriptsRunner.refresh",
+          "when": "view == scriptsRunnerExplorer",
+          "group": "navigation@1"
+        },
+        {
+          "command": "scriptsRunner.changePackageManager",
+          "when": "view == scriptsRunnerExplorer",
+          "group": "navigation@2"
+        },
+        {
+          "command": "scriptsRunner.openPackageJson",
+          "when": "view == scriptsRunnerExplorer",
+          "group": "navigation@3"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "scriptsRunner.runScript",
+          "when": "view == scriptsRunnerExplorer && viewItem == script",
+          "group": "inline"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "test": "node ./out/test/run-test.js",
+    "lint": "eslint .",
+    "format": "prettier --write 'src/**/*.ts'"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.70.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "@vscode/test-electron": "^2.3.0",
+    "eslint": "^9.0.0",
+    "glob": "^10.0.0",
+    "mocha": "^10.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.0.0"
+  }
+}
