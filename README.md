@@ -1,6 +1,12 @@
-# Scripts Runner - VS Code Extension
+# Scripts Runner
 
-A professional VS Code extension that allows you to execute `package.json` scripts with a single click from the sidebar, featuring automatic package manager detection.
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![VS Code](https://img.shields.io/badge/VS%20Code-1.70%2B-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+> Execute `package.json` scripts with a single click from the sidebar, featuring automatic package manager detection.
+
+A professional VS Code extension that allows you to run npm, pnpm, yarn, and bun scripts directly from the explorer sidebar with automatic package manager detection.
 
 ## 🎯 Key Features
 
@@ -14,16 +20,22 @@ A professional VS Code extension that allows you to execute `package.json` scrip
 
 ## 📸 Screenshots
 
-The extension adds a new "Scripts Runner" section in the explorer sidebar, displaying all available scripts from your `package.json`.
+> **Note**: Screenshots coming soon. The extension adds a new "Scripts Runner" section in the explorer sidebar, displaying all available scripts from your `package.json`.
 
 ## 🚀 Installation
 
-### From Marketplace (Coming Soon)
+### From VS Code Marketplace
 
 1. Open VS Code
-2. Navigate to Extensions
-3. Search for "Scripts Runner"
-4. Click Install
+2. Press `Ctrl+Shift+X` (or `Cmd+Shift+X` on Mac) to open Extensions
+3. Search for **"Scripts Runner"**
+4. Click **Install**
+
+Or install via command line:
+
+```bash
+code --install-extension alckordev.scripts-runner
+```
 
 ### From Source
 

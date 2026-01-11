@@ -20,8 +20,22 @@
     "yarn",
     "bun",
     "scripts",
-    "package.json"
+    "package.json",
+    "package-manager",
+    "task-runner",
+    "automation"
   ],
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alckordev/scripts-runner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alckordev/scripts-runner/issues"
+  },
+  "homepage": "https://github.com/alckordev/scripts-runner#readme",
   "activationEvents": [
     "onStartupFinished"
   ],
