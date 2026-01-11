@@ -142,10 +142,40 @@ Attempting to use npm, yarn, or bun will be blocked automatically.
 
 ### Testing the Extension
 
+#### Manual Testing
+
 1. Open the project in VS Code
 2. Press `F5` to launch the Extension Development Host
 3. In the new window, open a project with a `package.json`
 4. Check the "Scripts Runner" section in the explorer sidebar
+
+#### Running Unit Tests
+
+**Important**: Tests require the VS Code extension host context to run properly because they import the `vscode` module.
+
+To run tests:
+
+1. **From VS Code (Recommended)**:
+   - Open the project in VS Code
+   - Go to Run and Debug (Ctrl+Shift+D)
+   - Select "Extension Tests" from the dropdown
+   - Press `F5` or click the play button
+   - A new VS Code window will open and execute all tests with detailed output
+
+2. **From Terminal** (requires VS Code context):
+
+   ```bash
+   # This will fail without VS Code context
+   pnpm test
+   ```
+
+   Note: Running tests directly with `node` will fail because the `vscode` module is only available in the VS Code extension host environment.
+
+The test suite includes:
+
+- `PackageJsonReader` tests: File existence and script parsing
+- `PackageManagerDetector` tests: Package manager detection logic
+- `ScriptExecutor` tests: Script execution interface validation
 
 ## 📝 License
 
