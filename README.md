@@ -359,17 +359,18 @@ If you encounter any issues, please open an issue in the repository with:
 - **Expected vs actual behavior**
 - **Screenshots** (if applicable)
 
-## 📧 Contact
+## 💬 Soporte
 
 For questions or suggestions, please open an issue in the repository.
 
-**Author**: Francisco Luis Rios Vega  
-**Email**: alckordev@gmail.com  
-**Website**: https://alckor.dev
+**Authors**:
 
-## 🙏 Acknowledgments
-
-Original idea by [Jhoel Cordova](https://github.com/jhoelcq).
+- **Francisco Luis Rios Vega**
+  - Email: alckordev@gmail.com
+  - Website: https://alckor.dev
+- **Jhoel Cordova**
+  - GitHub: [@jhoelcq](https://github.com/jhoelcq)
+  - Original idea author
 
 ---
 
