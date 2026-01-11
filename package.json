@@ -3,8 +3,10 @@
   "displayName": "Scripts Runner",
   "description": "Execute package.json scripts with automatic package manager detection",
   "version": "1.0.0",
+  "packageManager": "pnpm@10.25.0",
   "engines": {
-    "vscode": "^1.70.0"
+    "vscode": "^1.70.0",
+    "pnpm": ">=10.0.0"
   },
   "keywords": [
     "npm",
@@ -98,10 +100,11 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "preinstall": "npx only-allow pnpm",
+    "vscode:prepublish": "pnpm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
+    "pretest": "pnpm run compile && pnpm run lint",
     "test": "node ./out/test/run-test.js",
     "lint": "eslint .",
     "format": "prettier --write 'src/**/*.ts'"
@@ -118,6 +121,7 @@
     "eslint": "^9.0.0",
     "glob": "^10.0.0",
     "mocha": "^10.0.0",
+    "only-allow": "^1.2.2",
     "prettier": "^3.0.0",
     "typescript": "^5.0.0",
     "typescript-eslint": "^8.0.0"
