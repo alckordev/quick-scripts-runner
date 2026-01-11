@@ -3,7 +3,8 @@
 src/**
 .gitignore
 .prettierrc
-.eslintrc.json
+eslint.config.mjs
 tsconfig.json
 **/*.map
 **/*.ts
+images/.gitkeep

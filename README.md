@@ -108,6 +108,15 @@ The extension works with any project that has a `package.json`, including:
 - TypeScript 5.0+
 - VS Code 1.70+
 
+### Extension Icon
+
+The extension icon should be placed in `images/icon.png`:
+
+- **Size**: 128x128 pixels (required)
+- **Format**: PNG
+- **Recommended**: Square icon with transparent background
+- The icon path is specified in `package.json` under the `icon` field
+
 ### Available Commands
 
 ```bash

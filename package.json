@@ -4,6 +4,7 @@
   "description": "Execute package.json scripts with automatic package manager detection",
   "version": "1.0.0",
   "publisher": "alckordev",
+  "icon": "images/icon.png",
   "author": {
     "name": "Francisco Luis Rios Vega",
     "email": "alckordev@gmail.com",
