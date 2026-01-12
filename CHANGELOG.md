@@ -2,6 +2,13 @@
 
 All notable changes to the "Quick Scripts Runner" extension will be documented in this file.
 
+## [1.0.1] - 2026-01-12
+
+### Fixed
+
+- OpenPackageJsonCommand now correctly detects and opens package.json from the active workspace instead of always using the first workspace
+- When multiple workspaces have package.json, user can now select which one to open via QuickPick menu
+
 ## [1.0.0] - 2026-01-11
 
 ### Added

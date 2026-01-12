@@ -1,6 +1,6 @@
 # Quick Scripts Runner
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)
 ![VS Code](https://img.shields.io/badge/VS%20Code-1.70%2B-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
@@ -33,7 +33,9 @@ The ultimate Visual Studio Code extension for running npm, pnpm, yarn, and bun s
 
 ## 📸 Screenshots
 
-> **Note**: Screenshots coming soon. The extension adds a new "Quick Scripts Runner" section in the explorer sidebar, displaying all available scripts from your `package.json`.
+![Quick Scripts Runner](images/screenshot.png)
+
+The extension adds a new "Quick Scripts Runner" section in the explorer sidebar, displaying all available scripts from your `package.json`. Scripts are automatically grouped by workspace folder when working with multiple projects.
 
 ## 🚀 Installation
 

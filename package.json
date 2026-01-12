@@ -2,7 +2,7 @@
   "name": "quick-scripts-runner",
   "displayName": "Quick Scripts Runner",
   "description": "Execute package.json scripts with automatic package manager detection",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "alckordev",
   "icon": "images/icon.png",
   "author": {
