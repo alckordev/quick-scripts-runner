@@ -1,5 +1,7 @@
 # Publishing Checklist
 
+> **Note**: This project now uses GitHub Actions for automated publishing. See [DEPLOYMENT.md](.github/DEPLOYMENT.md) for automated deployment setup. The manual steps below are still valid if you prefer to publish manually.
+
 ## ✅ Pre-Publishing Requirements
 
 ### Required Files
