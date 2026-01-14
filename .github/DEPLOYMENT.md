@@ -45,6 +45,8 @@ Before setting up automated deployment, you need to obtain Personal Access Token
 
 The workflow automatically triggers when you push a tag that starts with `v` (e.g., `v1.0.0`, `v1.0.1`):
 
+**Note**: The workflow uses Node.js 24 and will automatically handle cases where a version already exists in the marketplace (treating it as success, not failure).
+
 ```bash
 # Create and push a tag
 git tag v1.0.1
@@ -65,7 +67,7 @@ You can also trigger the workflow manually:
 The `publish.yml` workflow:
 
 1. ✅ Checks out the repository
-2. ✅ Sets up Node.js 18 and pnpm 10.25.0
+2. ✅ Sets up Node.js 24 and pnpm 10.25.0
 3. ✅ Installs dependencies with frozen lockfile
 4. ✅ Compiles TypeScript
 5. ✅ Runs linting (non-blocking)
@@ -95,7 +97,13 @@ The workflow extracts the version from `package.json`. Make sure to:
 
 ### Version Already Exists
 
-If you get an error that the version already exists:
+The workflow automatically handles the case where a version already exists in the marketplace:
+
+- ✅ **If version already exists**: The workflow will detect this and treat it as a success (not an error)
+- ✅ **Workflow continues**: Even if one marketplace already has the version, it will still try to publish to the other
+- ✅ **No workflow failure**: The workflow will complete successfully if the version already exists
+
+If you intentionally want to republish a version, you'll need to:
 
 1. Update the version in `package.json` to a higher version
 2. Update `CHANGELOG.md`

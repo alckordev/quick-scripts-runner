@@ -20,7 +20,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "24"
           cache: "pnpm"
 
       - name: Install pnpm
@@ -63,14 +63,15 @@ jobs:
           if [ $EXIT_CODE -eq 0 ]; then
             echo "✅ Successfully published to VS Marketplace"
             echo "published=true" >> $GITHUB_OUTPUT
-            echo "skipped=false" >> $GITHUB_OUTPUT
-          elif echo "$OUTPUT" | grep -qi "already exists\|already published\|Extension with identifier"; then
+            exit 0
+          elif echo "$OUTPUT" | grep -qiE "already exists|already published|version.*already|Error.*already"; then
             echo "ℹ️ Version already exists in VS Marketplace, skipping..."
             echo "published=false" >> $GITHUB_OUTPUT
-            echo "skipped=true" >> $GITHUB_OUTPUT
+            exit 0
           else
-            echo "❌ Error publishing to VS Marketplace:"
+            echo "❌ Failed to publish to VS Marketplace"
             echo "$OUTPUT"
+            echo "published=false" >> $GITHUB_OUTPUT
             exit $EXIT_CODE
           fi
         continue-on-error: true
@@ -87,14 +88,15 @@ jobs:
           if [ $EXIT_CODE -eq 0 ]; then
             echo "✅ Successfully published to Open VSX Registry"
             echo "published=true" >> $GITHUB_OUTPUT
-            echo "skipped=false" >> $GITHUB_OUTPUT
-          elif echo "$OUTPUT" | grep -qi "already exists\|already published\|already available\|Version.*already"; then
+            exit 0
+          elif echo "$OUTPUT" | grep -qiE "already exists|already published|version.*already|Error.*already"; then
             echo "ℹ️ Version already exists in Open VSX Registry, skipping..."
             echo "published=false" >> $GITHUB_OUTPUT
-            echo "skipped=true" >> $GITHUB_OUTPUT
+            exit 0
           else
-            echo "❌ Error publishing to Open VSX Registry:"
+            echo "❌ Failed to publish to Open VSX Registry"
             echo "$OUTPUT"
+            echo "published=false" >> $GITHUB_OUTPUT
             exit $EXIT_CODE
           fi
         continue-on-error: true
